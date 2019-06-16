@@ -1,5 +1,5 @@
 
-
+## **CC_Sprite**
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.gif" width="440">
 
 ## 面向的主要用户群体
@@ -11,8 +11,39 @@
 
 ## 示例
 通过示例简单看一下精灵的动作效果：  
-我们可以看下一些我做的精灵模型（等后面有空，我会自己设计一个比较细节的英雄模型来看它能达到的效果），这些开放出来可以随意使用，也可以在此基础上修改。也希望有人将制作的精灵共享出来：  
+我们可以看下一些我做的精灵模型（等后面有空，我会自己设计一个比较细节的英雄模型来看它能达到的效果），这些开放出来可以随意使用，也可以在此基础上修改。一起共享你制作的精灵吧：  
+<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test2.gif" width="440">
 
+## 使用
+### 安装工具库
+#### Podfile
+
+To integrate bench_ios into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
+pod 'bench_ios'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+========  
+### 如果使用 **CC_Sprite** 需要文件：
+1. CC_Sprite.h/CC_Sprite.m
+2. CC_SpriteItem.h/CC_SpriteItem.m
+### 如果制作 **CC_Sprite** 模型，需要文件：
+1. CC_SpriteMakerVC.h/CC_SpriteMakerVC.m
+2. CC_SpriteMaker.h/CC_SpriteMaker.m
+3. CC_SpriteBaseView.h/CC_SpriteBaseView.m
+### 如果测试 **CC_Sprite** 模型完整效果，可以使用：
+1. CC_SpriteTestVC.h/CC_SpriteTestVC.m
 
 ## 优势
 相比于传统逐帧动画、原生动画API有以下优势：  
