@@ -1,0 +1,9 @@
+
+
+platform :ios, '8.0'
+#use_frameworks!个别需要用到它，比如reactiveCocoa
+inhibit_all_warnings!
+
+target 'bench_ios_packages' do
+  pod 'bench_ios'
+end
