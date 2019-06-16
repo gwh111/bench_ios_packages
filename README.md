@@ -1,8 +1,5 @@
 
-## **CC_Sprite**
-<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.gif" width="440">
-
-## 面向的主要用户群体
+## **CC_Sprite** 面向的主要用户群体
 **CC_Sprite** 主要面向：
 1. 没有ps、美术基础又想做小动画、小游戏的iOS开发。
 2. 你不想学习ps或其他动画软件，也不想安装其他软件，你只想做一个单纯的、天真的iOS开发。
@@ -12,7 +9,16 @@
 ## 示例
 通过示例简单看一下精灵的动作效果：  
 我们可以看下一些我做的精灵模型（等后面有空，我会自己设计一个比较细节的英雄模型来看它能达到的效果），这些开放出来可以随意使用，也可以在此基础上修改。一起共享你制作的精灵吧：  
-<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test2.gif" width="440">
+<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.gif" width="240">
+以上效果用到的代码为：
+```
+CC_Sprite *sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];//初始化
+[sp1 updatePosition:CGPointMake(self.view.center.x-100, self.view.center.y)];//调整位置
+[sp1 updateColors:@{@"arm":[UIColor yellowColor]}];//更新部位颜色
+[sp1 playAction:@"atk" times:1 block:^(NSString * _Nonnull state, CC_Sprite * _Nonnull sprite) {
+
+}];//播放动作
+```
 
 ## 使用
 ### 安装工具库
@@ -35,15 +41,16 @@ Then, run the following command:
 $ pod install
 ```
 ========  
+精灵文件还没有制作库，可以拷贝以下文件到目录中：
 ### 如果使用 **CC_Sprite** 需要文件：
-1. CC_Sprite.h/CC_Sprite.m
-2. CC_SpriteItem.h/CC_SpriteItem.m
+1. CC_Sprite.h、CC_Sprite.m
+2. CC_SpriteItem.h、CC_SpriteItem.m
 ### 如果制作 **CC_Sprite** 模型，需要文件：
-1. CC_SpriteMakerVC.h/CC_SpriteMakerVC.m
-2. CC_SpriteMaker.h/CC_SpriteMaker.m
-3. CC_SpriteBaseView.h/CC_SpriteBaseView.m
+1. CC_SpriteMakerVC.h、CC_SpriteMakerVC.m
+2. CC_SpriteMaker.h、CC_SpriteMaker.m
+3. CC_SpriteBaseView.h、CC_SpriteBaseView.m
 ### 如果测试 **CC_Sprite** 模型完整效果，可以使用：
-1. CC_SpriteTestVC.h/CC_SpriteTestVC.m
+1. CC_SpriteTestVC.h、CC_SpriteTestVC.m
 
 ## 优势
 相比于传统逐帧动画、原生动画API有以下优势：  
@@ -66,7 +73,7 @@ $ pod install
 iOS模拟器或真机，因为全部使用iOS自带库封装，基本没有兼容问题。
 
 ## 支持
-可以在[https://github.com/gwh111/bench_ios](https://github.com/gwh111/bench_ios)留言交流问题或建议。
+可以在[https://github.com/gwh111/bench_ios](https://github.com/gwh111/bench_ios_packages)留言交流问题或建议。
 
 ## 问题和完善
 1. 还不支持图片的导入（不用其他库的前提下没有找到图片自由变形的方案，还需要考虑计算量）
@@ -75,6 +82,7 @@ iOS模拟器或真机，因为全部使用iOS自带库封装，基本没有兼�
 ## 调用方法
 ### 使用精灵🧚‍♂️Â
 详细介绍 **CC_Sprite** 有哪些属性和方法，可以实现哪些功能。  
+<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test2.gif" width="240">
 #### *创建精灵*
 有两种方法：
 1. 从工程目录读取文件Â
@@ -89,24 +97,38 @@ CC_Sprite *sp1=[[CC_Sprite alloÂc]initOn:self.view withLocalFilePath:@"sprite/m
 *属性*
 ```
 @property(nonatomic,retain) NSMutableArray *items;
-@property(nonatomic,assign) BOOL reverse;//mirror
 ```
 reverse是镜像翻转，设置了YES就会对整个精灵包括动作进行镜像翻转。
 items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。  
 
 *方法*
-更新精灵的位置，是以制作时的中心所在的位置为基准使用：
+更新精灵的位置，是以制作时的中心所在的位置为基准：
 ```
 - (void)updatePosition:(CGPoint)position;
 ```
 
-更新精灵的部位颜色使用：
+更新精灵的部位颜色：
 ```
 - (void)updateColors:(NSDictionary *)colorDic;
 ```
 以部位名-颜色的方式设置，如：
 ```
 [sp1 updateColors:@{@"arm":[UIColor yellowColor]}];
+```
+
+更新精灵的尺寸：
+```
+- (void)updateScale:(float)scale;
+```
+
+更新精灵的播放速度：
+```
+- (void)updateSpeed:(float)speed;
+```
+
+更新精灵的反转情况，通过反转形成左右对立需求：
+```
+- (void)updateReverse:(BOOL)reverse;
 ```
 
 名词解释：在这里
@@ -156,6 +178,7 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 ```
 
 ### 制作精灵🧚‍♂️
+<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test3.gif" width="240">
 调用制作的方法很简单，首先从你的测试工程起调制作控制器：  
 ```
 [CC_SpriteMakerVC presentVC];
@@ -255,4 +278,4 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 
 如何做一个动作，就是将整个动作拆分成关键帧，绘制关键帧后，计算机会自动计算中间帧。将它们连起来播放，你会惊喜地发现虽然只是一个轮廓，你的大脑🧠可以脑补出整个画面，既充满神秘又能理解动作。这让我想起小时候外公教我中国画，总是说在意不在形，小时候理解不了，总觉得要画的像，但中国画（写意不是工笔）的内涵就在于意，在像与不像之间。你仔细看，不像，但忽的一看，又能脑补整个场景。**CC_Sprite** 的精髓就在这里。当然，你也可以添加更多部位，比如拆分眼睛，嘴巴等细节来细化精灵，但这样相对比较耗时。
 
-不知大家有没有玩过《火焰纹章》掌机游戏，其实很多动作我都是参考这个游戏内的英雄，他们的战斗运动方式。刚开始制作到一半时才去看Spine的json文件，发现和它结构完全反了，担心后面会有问题，做了一半又不想重新开始就硬着头皮做了下去，最后发现意外的好用，这种结构利于拆分，至少适应了我的需求。
+不知大家有没有玩过《火焰纹章》掌机游戏，其实很多动作我都是参考这个游戏内的英雄，他们的战斗运动方式。刚开始制作到一半时才去看Spine的json文件，发现和它结构完全反了，担心后面会有问题，做了一半又不想重新开始就硬着头皮做了下去，最后发现意外的好用，这种结构利于拆分，至少适应了我的需求。后面再完善制作的功能……
