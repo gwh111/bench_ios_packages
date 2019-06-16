@@ -10,6 +10,7 @@
 通过示例简单看一下精灵的动作效果：  
 我们可以看下一些我做的精灵模型（等后面有空，我会自己设计一个比较细节的英雄模型来看它能达到的效果），这些开放出来可以随意使用，也可以在此基础上修改。一起共享你制作的精灵吧：  
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.gif" width="240">
+
 以上效果用到的代码为：
 ```
 CC_Sprite *sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];//初始化
@@ -80,12 +81,12 @@ iOS模拟器或真机，因为全部使用iOS自带库封装，基本没有兼�
 2. 模拟器可能会掉帧出现部位跟不上刷新问题，真机不会出现
 
 ## 调用方法
-### 使用精灵🧚‍♂️Â
+### 使用精灵🧚‍♂️
 详细介绍 **CC_Sprite** 有哪些属性和方法，可以实现哪些功能。  
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test2.gif" width="240">
 #### *创建精灵*
 有两种方法：
-1. 从工程目录读取文件Â
+1. 从工程目录读取文件
 ```
 CC_Sprite *sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:@"sprite/man" scaleSize:0.4 speedRate:1];
 ```
@@ -178,7 +179,7 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 ```
 
 ### 制作精灵🧚‍♂️
-<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test3.gif" width="240">
+<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test3.png" width="240">
 调用制作的方法很简单，首先从你的测试工程起调制作控制器：  
 ```
 [CC_SpriteMakerVC presentVC];
