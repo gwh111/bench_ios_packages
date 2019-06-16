@@ -17,6 +17,13 @@
 		D842D29A22B0B6D100816CB0 /* bench_ios_packagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D842D29922B0B6D100816CB0 /* bench_ios_packagesTests.m */; };
 		D842D2A522B0B6D100816CB0 /* bench_ios_packagesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D842D2A422B0B6D100816CB0 /* bench_ios_packagesUITests.m */; };
 		D8B3BFB822B5FEBF00851226 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8B3BFB722B5FEBF00851226 /* README.md */; };
+		D8B3BFC522B6106F00851226 /* CC_SpriteBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFBB22B6106E00851226 /* CC_SpriteBaseView.m */; };
+		D8B3BFC622B6106F00851226 /* CC_Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFBC22B6106E00851226 /* CC_Sprite.m */; };
+		D8B3BFC722B6106F00851226 /* CC_SpriteItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFBD22B6106E00851226 /* CC_SpriteItem.m */; };
+		D8B3BFC822B6106F00851226 /* CC_SpriteMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFC122B6106F00851226 /* CC_SpriteMaker.m */; };
+		D8B3BFC922B6106F00851226 /* CC_SpriteMakerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFC222B6106F00851226 /* CC_SpriteMakerVC.m */; };
+		D8B3BFCA22B6106F00851226 /* CC_SpriteTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFC422B6106F00851226 /* CC_SpriteTestVC.m */; };
+		D8B3BFCC22B610F200851226 /* sprite in Resources */ = {isa = PBXBuildFile; fileRef = D8B3BFCB22B610F200851226 /* sprite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +65,19 @@
 		D842D2A622B0B6D100816CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8B3BFB622B3AE8000851226 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D8B3BFB722B5FEBF00851226 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		D8B3BFB922B6106E00851226 /* CC_SpriteItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_SpriteItem.h; sourceTree = "<group>"; };
+		D8B3BFBA22B6106E00851226 /* CC_SpriteMakerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_SpriteMakerVC.h; sourceTree = "<group>"; };
+		D8B3BFBB22B6106E00851226 /* CC_SpriteBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteBaseView.m; sourceTree = "<group>"; };
+		D8B3BFBC22B6106E00851226 /* CC_Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_Sprite.m; sourceTree = "<group>"; };
+		D8B3BFBD22B6106E00851226 /* CC_SpriteItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteItem.m; sourceTree = "<group>"; };
+		D8B3BFBE22B6106E00851226 /* CC_Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_Sprite.h; sourceTree = "<group>"; };
+		D8B3BFBF22B6106F00851226 /* CC_SpriteBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_SpriteBaseView.h; sourceTree = "<group>"; };
+		D8B3BFC022B6106F00851226 /* CC_SpriteMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_SpriteMaker.h; sourceTree = "<group>"; };
+		D8B3BFC122B6106F00851226 /* CC_SpriteMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteMaker.m; sourceTree = "<group>"; };
+		D8B3BFC222B6106F00851226 /* CC_SpriteMakerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteMakerVC.m; sourceTree = "<group>"; };
+		D8B3BFC322B6106F00851226 /* CC_SpriteTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_SpriteTestVC.h; sourceTree = "<group>"; };
+		D8B3BFC422B6106F00851226 /* CC_SpriteTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteTestVC.m; sourceTree = "<group>"; };
+		D8B3BFCB22B610F200851226 /* sprite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprite; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +144,19 @@
 				D842D28122B0B6CE00816CB0 /* AppDelegate.m */,
 				D842D28322B0B6CE00816CB0 /* ViewController.h */,
 				D842D28422B0B6CE00816CB0 /* ViewController.m */,
+				D8B3BFCB22B610F200851226 /* sprite */,
+				D8B3BFBE22B6106E00851226 /* CC_Sprite.h */,
+				D8B3BFBC22B6106E00851226 /* CC_Sprite.m */,
+				D8B3BFBF22B6106F00851226 /* CC_SpriteBaseView.h */,
+				D8B3BFBB22B6106E00851226 /* CC_SpriteBaseView.m */,
+				D8B3BFB922B6106E00851226 /* CC_SpriteItem.h */,
+				D8B3BFBD22B6106E00851226 /* CC_SpriteItem.m */,
+				D8B3BFC022B6106F00851226 /* CC_SpriteMaker.h */,
+				D8B3BFC122B6106F00851226 /* CC_SpriteMaker.m */,
+				D8B3BFBA22B6106E00851226 /* CC_SpriteMakerVC.h */,
+				D8B3BFC222B6106F00851226 /* CC_SpriteMakerVC.m */,
+				D8B3BFC322B6106F00851226 /* CC_SpriteTestVC.h */,
+				D8B3BFC422B6106F00851226 /* CC_SpriteTestVC.m */,
 				D842D28622B0B6CE00816CB0 /* Main.storyboard */,
 				D842D28922B0B6D100816CB0 /* Assets.xcassets */,
 				D842D28B22B0B6D100816CB0 /* LaunchScreen.storyboard */,
@@ -265,6 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B3BFCC22B610F200851226 /* sprite in Resources */,
 				D842D28D22B0B6D100816CB0 /* LaunchScreen.storyboard in Resources */,
 				D842D28A22B0B6D100816CB0 /* Assets.xcassets in Resources */,
 				D8B3BFB822B5FEBF00851226 /* README.md in Resources */,
@@ -318,9 +352,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8B3BFC522B6106F00851226 /* CC_SpriteBaseView.m in Sources */,
+				D8B3BFC622B6106F00851226 /* CC_Sprite.m in Sources */,
+				D8B3BFC922B6106F00851226 /* CC_SpriteMakerVC.m in Sources */,
 				D842D28522B0B6CE00816CB0 /* ViewController.m in Sources */,
 				D842D29022B0B6D100816CB0 /* main.m in Sources */,
+				D8B3BFC822B6106F00851226 /* CC_SpriteMaker.m in Sources */,
+				D8B3BFCA22B6106F00851226 /* CC_SpriteTestVC.m in Sources */,
 				D842D28222B0B6CE00816CB0 /* AppDelegate.m in Sources */,
+				D8B3BFC722B6106F00851226 /* CC_SpriteItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

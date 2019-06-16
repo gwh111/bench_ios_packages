@@ -184,7 +184,7 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 调用制作的方法很简单，首先从你的测试工程起调制作控制器：  
 
 ```
-[CC_SpriteMakerVC presentVC];
+[CC_SpriteMakerVC presentOnVC:self];
 ```
 
 #### 精灵结构分析
