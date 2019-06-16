@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.jpg" width="440">
+<img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.gif" width="440">
 
 ## 面向的主要用户群体
 **CC_Sprite** 主要面向：
