@@ -16,6 +16,7 @@
 		D842D29022B0B6D100816CB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D842D28F22B0B6D100816CB0 /* main.m */; };
 		D842D29A22B0B6D100816CB0 /* bench_ios_packagesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D842D29922B0B6D100816CB0 /* bench_ios_packagesTests.m */; };
 		D842D2A522B0B6D100816CB0 /* bench_ios_packagesUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D842D2A422B0B6D100816CB0 /* bench_ios_packagesUITests.m */; };
+		D8B3BFB822B5FEBF00851226 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D8B3BFB722B5FEBF00851226 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D842D2A422B0B6D100816CB0 /* bench_ios_packagesUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = bench_ios_packagesUITests.m; sourceTree = "<group>"; };
 		D842D2A622B0B6D100816CB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8B3BFB622B3AE8000851226 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D8B3BFB722B5FEBF00851226 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		D842D27F22B0B6CE00816CB0 /* bench_ios_packages */ = {
 			isa = PBXGroup;
 			children = (
+				D8B3BFB722B5FEBF00851226 /* README.md */,
 				D842D28022B0B6CE00816CB0 /* AppDelegate.h */,
 				D842D28122B0B6CE00816CB0 /* AppDelegate.m */,
 				D842D28322B0B6CE00816CB0 /* ViewController.h */,
@@ -264,6 +267,7 @@
 			files = (
 				D842D28D22B0B6D100816CB0 /* LaunchScreen.storyboard in Resources */,
 				D842D28A22B0B6D100816CB0 /* Assets.xcassets in Resources */,
+				D8B3BFB822B5FEBF00851226 /* README.md in Resources */,
 				D842D28822B0B6CE00816CB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
