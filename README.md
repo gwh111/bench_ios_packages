@@ -180,10 +180,13 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 
 ### 制作精灵🧚‍♂️
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test3.png" width="240">
+
 调用制作的方法很简单，首先从你的测试工程起调制作控制器：  
+
 ```
 [CC_SpriteMakerVC presentVC];
 ```
+
 #### 精灵结构分析
 和Spine结构略有不同，Spine是使用动作+节点的方式生成json文件，节点和动作平铺在外，而CC_Sptire使用节点+动作的形式。起先在这两种方式上考虑了很久，最终选择现在的模式，这样分的好处是：
 1. 更换某个部位如：武器时只需替换武器的整个包结构，如果是用动作+节点就需要对每个动作做出调整，因为不同武器不仅形状不一样，动作也不一样。
