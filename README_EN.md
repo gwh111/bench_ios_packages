@@ -1,29 +1,27 @@
 
-[english](https://github.com/gwh111/bench_ios_packages/README_EN.md)
-## **CC_Sprite** 面向的主要用户群体
-**CC_Sprite** 主要面向：
-1. 没有ps、美术基础又想做小动画、小游戏的iOS开发。
-2. 你不想学习ps或其他动画软件，也不想安装其他软件，你只想做一个单纯的、天真的iOS开发。
-3. 你能接受虽然没有商业级的动画那么强大，但能表现一些常规动作的火柴人动画。（如果你足够耐心，将各个模块细节拆分配上不同配色，也是可以做出精致的矢量动画的）
-那么你可以尝试使用一下简单的 **CC_Sprite**
+## **CC_Sprite** Major user groups
+**CC_Sprite** can offer people who is：
+1. Without PS and art foundation, but want to do iOS development of small animations and games.
+2. You don't want to learn PS or other animation software, and you don't want to install other software, you just want to do a simple, naive iOS development.
+3. You can accept Matchman animation, which is not as powerful as commercial animation, but can perform some routine actions. (If you're patient enough, you can also make delicate vector animation by disassembling and assigning the details of each module to different colours.)
+Then you can try **CC_Sprite**
 
-## 示例
-通过示例简单看一下精灵的动作效果：  
-我们可以看下一些我做的精灵模型（等后面有空，我会自己设计一个比较细节的英雄模型来看它能达到的效果），这些开放出来可以随意使用，也可以在此基础上修改。一起共享你制作的精灵吧：  
+## Example
+Take a brief look at the action of the elves through examples，you can share your sprite later:  
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test1.gif" width="240">
 
-以上效果用到的代码为：
+The code used for the above effect is:
 ```
-CC_Sprite *sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];//初始化
-[sp1 updatePosition:CGPointMake(self.view.center.x-100, self.view.center.y)];//调整位置
-[sp1 updateColors:@{@"arm":[UIColor yellowColor]}];//更新部位颜色
+CC_Sprite *sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];//init
+[sp1 updatePosition:CGPointMake(self.view.center.x-100, self.view.center.y)];//adjust position
+[sp1 updateColors:@{@"arm":[UIColor yellowColor]}];//update part color
 [sp1 playAction:@"atk" times:1 block:^(NSString * _Nonnull state, CC_Sprite * _Nonnull sprite) {
 
-}];//播放动作
+}];//play action
 ```
 
-## 使用
-### 安装工具库
+## Use
+### Installation Tool Library
 #### Podfile
 
 To integrate bench_ios into your Xcode project using CocoaPods, specify it in your `Podfile`:
@@ -43,111 +41,112 @@ Then, run the following command:
 $ pod install
 ```
 ========  
-精灵文件还没有制作库，可以拷贝以下文件到目录中：
-### 如果使用 **CC_Sprite** 需要文件：
+You can copy the following files into the directory:
+### for use **CC_Sprite** ：
 1. CC_Sprite.h、CC_Sprite.m
 2. CC_SpriteItem.h、CC_SpriteItem.m
-### 如果制作 **CC_Sprite** 模型，需要文件：
+### for make **CC_Sprite** models：
 1. CC_SpriteMakerVC.h、CC_SpriteMakerVC.m
 2. CC_SpriteMaker.h、CC_SpriteMaker.m
 3. CC_SpriteBaseView.h、CC_SpriteBaseView.m
-### 如果测试 **CC_Sprite** 模型完整效果，可以使用：
+### for test **CC_Sprite** effect：
 1. CC_SpriteTestVC.h、CC_SpriteTestVC.m
 
-## 优势
-相比于传统逐帧动画、原生动画API有以下优势：  
-1. 最小的体积：传统的动画需要提供每一帧图片。而 **CC_Sprite** 动画只保存骨骼的动画数据，它所占用的空间非常小，*只需一个json文件*，无需任何图片资源。
-2. 美术需求：**CC_Sprite** 无需任何图片资源所以任何程序员可以独立完成整个动画，无需ps、美术软件基础。
-3. 流畅性：**CC_Sprite** 动画使用差值算法计算中间帧，这能让你的动画总是保持流畅的效果。
-4. 复用：一套动作可以复用置另一个精灵，一个精灵每个模块都可替换（如武器的替换）。
-5. 可视化：SpriteKit等iOS原生动画只有编译后才可看到效果，开发完全凭空想象，**CC_Sprite** 对每一关键帧可以即时预览。
-6. 软件成本：几乎为0，无需安装和学习任何其他软件，直接在原生iOS模拟器创建精灵🧚‍♂️，展示的即是真实效果，省去调试API的步骤。
+## Advantage
+Compared with traditional frame-by-frame animation and native animation API, it has the following advantages:
+1. Minimum volume: Traditional animation needs to provide every frame of picture. The **CC_Sprite** animation only saves the animation data of the skeleton, which occupies very little space, *only needs a JSON file* , and does not need any image resources.
+2. Art Requirements: **CC_Sprite** does not require any image resources, so any programmer can complete the entire animation independently, without ps, art software foundation.
+3. Fluency: **CC_Sprite** Animation uses the difference algorithm to calculate the intermediate frame, which can make your animation always keep fluent effect.
+4. Reuse: A set of actions can be reused and placed by another wizard. Each module of a wizard can be replaced (e.g. weapon replacement).
+5. Visualization: iOS native animations such as SpriteKit can only be seen after compilation. Development is entirely imaginary and **CC_Sprite** can preview every key frame in real time.
+6. Software Cost: Almost 0, no need to install and learn any other software, directly create a sprite in the native iOS simulator, which shows the real effect, eliminating the steps of debugging the API.
 
-## 运行原理
-使用 **CC_SpriteMaker** 制作的精灵🧚‍♂️生成json文件，包含每个关节的关键点，使用 **CC_Sprite** 播放时利用差值计算中间状态。
+## Operating Principle
+The sprite produced by **CC_SpriteMaker** generates a JSON file containing the key points of each joint, and calculates the intermediate state by using the difference when playing **CC_Sprite**.
 
-## 功能
-1. 部位：将精灵分解成各个部位，单独对部位进行调整。
-2. 动作：将每个部位动作分解，各个动作独立。
-3. 组合：可以在任何关键帧插入回调，自由组合多个动画或变化。
+## Function
+1. Location: The elves are decomposed into different parts, and the parts are adjusted separately.
+2. Action: Each part of the action is decomposed and each action is independent.
+3. Combination: You can insert callbacks in any key frame and combine multiple animations or changes freely.
 
-## 运行环境
-iOS模拟器或真机，因为全部使用iOS自带库封装，基本没有兼容问题。
+## Operating environment
+IOS simulator or real machine, because all of them are encapsulated by iOS own library, there is basically no compatibility problem.
 
-## 支持
-可以在[https://github.com/gwh111/bench_ios](https://github.com/gwh111/bench_ios_packages)留言交流问题或建议。
+## Support
+You can leave message on [https://github.com/gwh111/bench_ios](https://github.com/gwh111/bench_ios_packages)
 
-## 问题和完善
-1. 还不支持图片的导入（不用其他库的前提下没有找到图片自由变形的方案，还需要考虑计算量）
-2. 模拟器可能会掉帧出现部位跟不上刷新问题，真机不会出现
+## Problems and Improvements
+1. It does not support the import of pictures (without any other libraries, there is no solution for free deformation of pictures, also need to consider the amount of calculation)
+2. The simulator may drop frames and fail to keep up with the refresh. The real machine will not appear.
 
-## 调用方法
-### 使用精灵🧚‍♂️
-详细介绍 **CC_Sprite** 有哪些属性和方法，可以实现哪些功能。  
+## Call method
+### use sprite 🧚‍
+Detailed description of the attributes and methods of **CC_Sprite** and what functions can be achieved.
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test2.gif" width="240">
-#### *创建精灵*
+#### *create sprite*
 有两种方法：
-1. 从工程目录读取文件
+1. Read files from project catalog
 ```
 CC_Sprite *sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:@"sprite/man" scaleSize:0.4 speedRate:1];
 ```
-2. 另一种是从沙盒读取文件（一般只在调试时使用）
+2. The other is to read files from sandboxes (usually only for debugging purposes)
 ```
 CC_Sprite *sp1=[[CC_Sprite alloÂc]initOn:self.view withLocalFilePath:@"sprite/man" scaleSize:0.4 speedRate:1];
 ```
-#### *配置精灵*
-*属性*
+#### *configure sprite*
+*Property*
 ```
 @property(nonatomic,retain) NSMutableArray *items;
 ```
-items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。  
+Items are every part of the genie. The component class CC_SpriteItem will be mentioned later.
 
-*方法*
-更新精灵的位置，是以制作时的中心所在的位置为基准：
+*Methods*
+Updating the location of the sprite is based on the location of the center at the time of production:
 ```
 - (void)updatePosition:(CGPoint)position;
 ```
 
-更新精灵的部位颜色：
+Update the part color of the sprite:
 ```
 - (void)updateColors:(NSDictionary *)colorDic;
 ```
-以部位名-颜色的方式设置，如：
+Set in the form of location name-color, such as:
 ```
 [sp1 updateColors:@{@"arm":[UIColor yellowColor]}];
 ```
 
-更新精灵的尺寸：
+update the sprite scaleSize:
 ```
 - (void)updateScale:(float)scale;
 ```
 
-更新精灵的播放速度：
+Update sprite Play Speed:
 ```
 - (void)updateSpeed:(float)speed;
 ```
 
-更新精灵的反转情况，通过反转形成左右对立需求：
+Make sprite reverse:
 ```
 - (void)updateReverse:(BOOL)reverse;
 ```
 
-名词解释：在这里
-**精灵=多个部件组成的整体+各个部件动作**  
-**部件=部件形状+各个动作**  
-**基准=一个精灵各个部件的形状**
-所以更新了部件，那么这个部位的形状和这个部位的动作会发生改变。更新了基准，这个精灵的形状发生改变，而动作不变。
-更新精灵所有基础部件使用：
+Noun Interpretation:
+**sprite=the whole of multiple components + the action of each component**  
+**Component = Component shape + individual actions**  
+**Base = the shape of each part of sprite**
+So when the components are updated, the shape and action of the parts will change. Updated the base, the shape of the elf changed, while the action remained unchanged.
+
+Update all component base data of the sprite to use:
 ```
 - (void)updateBaseListWithFilePath:(NSString *)fileName;
 ```
-使用场景如制作了一个普通英雄 *man.json*，包含了走路、攻击等动作，又想制作一个比较胖的英雄但不想重新做一遍动作，只需：
-1. 调整 *man.json* 每个部件的形状，手臂拉拉粗，身体拉圆一点
-2. 删除其余动作，然后生成一个没有动作的 *fatman.json*
-3. 初始化 *man.json*，使用 **updateBaseListWithFilePath:@"fatman"** 来替换模型。
-4. 这样你就得到了一个包含 *man.json* 全部动作的fatman精灵。
+Use scenarios such as making an ordinary hero *man.JSON*, including walking, attacking and other actions, but also want to make a fatter hero, but do not want to do the action again, just:
+1. adjust *man.json* each part, like make arm stronger,neck slim.
+2. delete all the actions, create a file called *fatman.json*
+3. init *man.json*，use **updateBaseListWithFilePath:@"fatman"** to update base。
+4. then you get a new sprite with all the *man.json* 's actions。
 
-更新精灵部分部件使用：
+Update wizard parts to use:
 ```
 - (void)updateBasePart:(NSString *)name withFilePath:(NSString *)fileName;
 ```
@@ -155,13 +154,13 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 1. 新建一个精灵，绘制一把新的武器，保存为 *sword.json*
 2. 使用 **updateBasePart:@"arm" withFilePath:@"sword"** 来替换 *arm* 部件的武器。
 
-拿掉精灵部件使用：
+Remove parts and use:
 ```
 - (void)removePart:(NSString *)name;
 ```
 比如把英雄的武器拿掉 **removePart:@"arm"**
 
-播放精灵动画使用：
+Play sprite Animation using:
 ```
 - (void)playAction:(NSString *)name repeat:(int)repeat block:(nullable void(^)(NSString *state, CC_Sprite *sprite))block;
 ```
@@ -178,10 +177,10 @@ items是精灵的每个部件。后面会讲到部件类CC_SpriteItem。
 - (void)remove;
 ```
 
-### 制作精灵🧚‍♂️
+### Make sprite🧚‍
 <img src="https://github.com/gwh111/bench_ios_packages/blob/master/test3.png" width="240">
 
-调用制作的方法很简单，首先从你的测试工程起调制作控制器：  
+It's very simple to call the method of making. First, start with your test project and modulate it as a controller. 
 
 ```
 [CC_SpriteMakerVC presentOnVC:self];
