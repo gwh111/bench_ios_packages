@@ -1,5 +1,5 @@
 
-[english](https://github.com/gwh111/bench_ios_packages/README_EN.md)
+[English](https://github.com/gwh111/bench_ios_packages/README_EN.md)
 ## **CC_Sprite** 面向的主要用户群体
 **CC_Sprite** 主要面向：
 1. 没有ps、美术基础又想做小动画、小游戏的iOS开发。
