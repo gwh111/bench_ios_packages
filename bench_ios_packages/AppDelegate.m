@@ -25,6 +25,13 @@
     //设置基准 效果图的尺寸即可
     [[CC_UIHelper getInstance]initUIDemoWidth:375 andHeight:667];
     
+    ViewController *appStartController=[[ViewController alloc]init];
+    UINavigationController *navController =[[UINavigationController alloc] initWithRootViewController:appStartController];
+    //    navController.navigationBarHidden=YES;
+    self.window.rootViewController=navController;
+    
+    [self.window makeKeyAndVisible];
+    
     NSLog(@"path=%@",[NSString stringWithFormat:@"%@", NSHomeDirectory()]);
     return YES;
 }

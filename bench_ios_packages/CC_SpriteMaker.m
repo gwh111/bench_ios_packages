@@ -452,6 +452,12 @@
     return @{@"action":currentActionName,@"actionIndex":@(currentIndex-1)};
 }
 
+- (void)removeAllActions{
+    [pathJSON removeObjectForKey:@"actions"];
+}
+
+
+#pragma mark init
 - (void)initLayer{
     
     [self updateBasePointList];
@@ -682,11 +688,14 @@
         }else if ([bt.titleLabel.text isEqualToString:@"动作"]){
             NSArray *actions=pathJSON[@"actions"];
             NSMutableArray *names=[[NSMutableArray alloc]init];
+            [names addObject:@"取消"];
             for (int i=0; i<actions.count; i++) {
                 [names addObject:actions[i][@"name"]];
             }
             [CC_Alert showAltOn:[baseView viewController] title:@"" msg:@"which one?" bts:names block:^(int index, NSString * _Nonnull name) {
-               
+                if ([name isEqualToString:@"取消"]) {
+                    return;
+                }
                 [self updateActionNamesWithActionName:names[index]];
                 
                 if ([self.delegate respondsToSelector:@selector(spriteMaker:didSelectActionAtIndex:name:)]) {
@@ -831,7 +840,7 @@
             return;
         }
         if ([bt.titleLabel.text isEqualToString:@"+帧"]) {
-            [CC_Alert showTextFieldAltOn:[baseView viewController] title:@"" msg:@"" placeholder:@"copy step of index?" bts:@[@"取消",@"确定",@"反转"] block:^(int index, NSString * _Nonnull name, NSString * _Nonnull text) {
+            [CC_Alert showTextFieldAltOn:[baseView viewController] title:@"" msg:@"" placeholder:@"copy step of index?" bts:@[@"取消",@"确定",@"反转",@"基准"] block:^(int index, NSString * _Nonnull name, NSString * _Nonnull text) {
                 if (index==0) {
                     return ;
                 }
@@ -841,6 +850,9 @@
                 }
                 if ([name isEqualToString:@"反转"]) {
                     [self addStep:step mirror:YES];
+                }
+                if ([name isEqualToString:@"基准"]) {
+                    [self addFirtStep];
                 }
             }];
             return;
@@ -1060,9 +1072,7 @@
 
 - (void)updateActionNamesWithActionName:(NSString *)name{
     NSArray *actions=pathJSON[@"actions"];
-    if (actions.count==0) {
-        return;
-    }
+
     currentActionName=name;
     NSMutableArray *actionsNameArr=[[NSMutableArray alloc]init];
     for (int i=0; i<actions.count; i++) {
@@ -1074,9 +1084,11 @@
     }
     [actionsNameArr addObject:@"动作"];
     [actionsNameArr addObject:@"+"];
-    [actionsNameArr addObject:@"复制"];
-    [actionsNameArr addObject:@"-"];
-    [actionsNameArr addObject:@"名"];
+    if (actions.count>0) {
+        [actionsNameArr addObject:@"复制"];
+        [actionsNameArr addObject:@"-"];
+        [actionsNameArr addObject:@"名"];
+    }
 //    [actionsNameArr addObject:@"收"];
 //    [actionsNameArr addObject:@"播放"];
 //    [actionsNameArr addObject:@"重置"];

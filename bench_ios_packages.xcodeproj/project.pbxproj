@@ -23,7 +23,7 @@
 		D8B3BFC822B6106F00851226 /* CC_SpriteMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFC122B6106F00851226 /* CC_SpriteMaker.m */; };
 		D8B3BFC922B6106F00851226 /* CC_SpriteMakerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFC222B6106F00851226 /* CC_SpriteMakerVC.m */; };
 		D8B3BFCA22B6106F00851226 /* CC_SpriteTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3BFC422B6106F00851226 /* CC_SpriteTestVC.m */; };
-		D8B3BFCC22B610F200851226 /* sprite in Resources */ = {isa = PBXBuildFile; fileRef = D8B3BFCB22B610F200851226 /* sprite */; };
+		D8B3C11A22BFA97000851226 /* sprite in Resources */ = {isa = PBXBuildFile; fileRef = D8B3C11922BFA97000851226 /* sprite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		D8B3BFC222B6106F00851226 /* CC_SpriteMakerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteMakerVC.m; sourceTree = "<group>"; };
 		D8B3BFC322B6106F00851226 /* CC_SpriteTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CC_SpriteTestVC.h; sourceTree = "<group>"; };
 		D8B3BFC422B6106F00851226 /* CC_SpriteTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CC_SpriteTestVC.m; sourceTree = "<group>"; };
-		D8B3BFCB22B610F200851226 /* sprite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprite; sourceTree = SOURCE_ROOT; };
+		D8B3C11922BFA97000851226 /* sprite */ = {isa = PBXFileReference; lastKnownFileType = folder; path = sprite; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 				D842D28122B0B6CE00816CB0 /* AppDelegate.m */,
 				D842D28322B0B6CE00816CB0 /* ViewController.h */,
 				D842D28422B0B6CE00816CB0 /* ViewController.m */,
-				D8B3BFCB22B610F200851226 /* sprite */,
+				D8B3C11922BFA97000851226 /* sprite */,
 				D8B3BFBE22B6106E00851226 /* CC_Sprite.h */,
 				D8B3BFBC22B6106E00851226 /* CC_Sprite.m */,
 				D8B3BFBF22B6106F00851226 /* CC_SpriteBaseView.h */,
@@ -298,7 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B3BFCC22B610F200851226 /* sprite in Resources */,
+				D8B3C11A22BFA97000851226 /* sprite in Resources */,
 				D842D28D22B0B6D100816CB0 /* LaunchScreen.storyboard in Resources */,
 				D842D28A22B0B6D100816CB0 /* Assets.xcassets in Resources */,
 				D8B3BFB822B5FEBF00851226 /* README.md in Resources */,

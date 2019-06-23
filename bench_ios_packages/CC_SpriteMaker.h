@@ -57,6 +57,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)copyAction;
 - (NSDictionary *)getInfo;
 
+- (void)removeAllActions;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -39,30 +39,51 @@
     // Do any additional setup after loading the view.
     
     NSArray *list=[ccs getLocalFileListWithDocumentName:@"sprite" withType:@"json"];
-    if (list.count==0) {
-        return;
-    }
-    NSString *fileName=list[0];
-    fileName=[fileName stringByReplacingOccurrencesOfString:@".json" withString:@""];
-    fileName=ccstr(@"sprite/%@",fileName);
-
-    if ([ccs getDefault:@"defaultSpriteTestName"]) {
-        fileName=[ccs getDefault:@"defaultSpriteTestName"];
+    NSString *fileName;
+    if (list.count>0) {
+        fileName=list[0];
+        fileName=[fileName stringByReplacingOccurrencesOfString:@".json" withString:@""];
+        fileName=ccstr(@"sprite/%@",fileName);
+        
+        if ([ccs getDefault:@"defaultSpriteTestName"]) {
+            fileName=[ccs getDefault:@"defaultSpriteTestName"];
+        }
+    }else{
+        fileName=@"sprite/man";
     }
 
     sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];
 //    sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];
     [sp1 updatePosition:CGPointMake(self.view.center.x-100, self.view.center.y)];
-    [sp1 updateColors:@{@"arm":[UIColor yellowColor]}];
-    [sp1 playAction:@"ready" times:3 block:^(NSString * _Nonnull state, CC_Sprite * _Nonnull sprite) {
+    [sp1 updateColors:@{@"arm":[UIColor yellowColor],
+                        }];
+    [sp1 playAction:@"ready" times:0 block:^(NSString * _Nonnull state, CC_Sprite * _Nonnull sprite) {
         
     }];
+    
+    [sp1 updateColors:@{@"hair":ccRGBA(222, 222, 222, 1),
+                        @"hair2":ccRGBA(235, 235, 235, 1),
+                        @"flower":ccRGBA(215, 215, 215, 1),
+                        @"body":ccRGBA(255, 255, 255, 0.85),
+                        @"left_arm":ccRGBA(255, 255, 255, 0.85),
+                        @"right_arm":ccRGBA(255, 255, 255, 0.85),
+                        @"left_leg":ccRGBA(255, 255, 255, 0.95),
+                        @"right_leg":ccRGBA(255, 255, 255, 0.95),
+                        @"dress":ccRGBA(255, 255, 255, 0.8),
+                        @"dress_s1":ccRGBA(255, 255, 255, 0.82),
+                        @"dress_s2":ccRGBA(255, 255, 255, 0.82),
+                        @"dress_b":ccRGBA(255, 255, 255, 0.7),
+                        }];
+    
 
-    sp2=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];
+    sp2=[[CC_Sprite alloc]initOn:self.view withFilePath:@"sprite/man2" scaleSize:0.4 speedRate:1];
 //    sp2=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];
     [sp2 updateReverse:YES];
     [sp2 updatePosition:CGPointMake(self.view.center.x+100, self.view.center.y)];
     [sp2 removePart:@"arm"];
+    [sp2 playAction:@"ready" times:0 block:^(NSString * _Nonnull state, CC_Sprite * _Nonnull sprite) {
+        
+    }];
     
     scrollV=[[UIScrollView alloc]initWithFrame:CGRectMake(0, RH(70), [ccui getW], RH(200))];
     [self.view addSubview:scrollV];
@@ -199,7 +220,7 @@
         CCLOG(@"state=%@",state);
         if ([state isEqualToString:@"finish"]) {
             
-            [sp2 playAction:@"fist" times:1 block:^(NSString * _Nonnull state, CC_Sprite *sprite) {
+            [sprite playAction:@"ready" times:0 block:^(NSString * _Nonnull state, CC_Sprite *sprite) {
             }];
 
         }
@@ -209,6 +230,19 @@
             [sp2_hited updateColors:@{@"hit":[UIColor redColor]}];
             [ccs delay:0.5 block:^{
                 [sp2_hited remove];
+            }];
+        }
+        if ([state hasSuffix:@"hit_s"]) {
+            CC_Sprite *sp2_hited=[[CC_Sprite alloc]initOn:self.view withFilePath:@"sprite/hit_s" scaleSize:0.5 speedRate:1];
+            [sp2_hited updatePosition:[sp2 getPosition]];
+            [sp2_hited updateColors:@{@"hit":COLOR_LIGHT_YELLOW}];
+            [sp2_hited playAction:@"hit" times:1 block:^(NSString * _Nonnull state, CC_Sprite * _Nonnull sprite) {
+                [sprite remove];
+                [UIView animateWithDuration:.5f animations:^{
+                    
+                } completion:^(BOOL finished) {
+                    
+                }];
             }];
         }
         if ([state hasSuffix:@"hit_right_down"]) {

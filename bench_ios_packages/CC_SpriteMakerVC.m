@@ -56,6 +56,24 @@
     self.view.backgroundColor=COLOR_WHITE;
     
     [self initUI];
+    
+//    for (int i=0; i<makers.count; i++) {
+//        CC_SpriteMaker *maker=makers[i];
+//        [maker removeAllActions];
+//    }
+//    for (int i=0; i<makers.count; i++) {
+//        CC_SpriteMaker *maker=makers[i];
+//        if ([maker.pathJSON[@"name"]isEqualToString:@"dress_b"]) {
+//            [makers removeObjectAtIndex:i];
+//            [makers insertObject:maker atIndex:0];
+//            return;
+//        }
+//    }
+    for (int i=0; i<makers.count; i++) {
+        CC_SpriteMaker *maker=makers[i];
+        [maker preview];
+    }
+    
 }
 
 - (void)initUI{
@@ -358,7 +376,7 @@
         return;
     }
     if ([bt.titleLabel.text isEqualToString:@"+帧"]) {
-        [CC_Alert showTextFieldAltOn:self title:@"" msg:@"" placeholder:@"copy step of index?" bts:@[@"取消",@"确定",@"反转"] block:^(int index, NSString * _Nonnull name, NSString * _Nonnull text) {
+        [CC_Alert showTextFieldAltOn:self title:@"" msg:@"" placeholder:@"copy step of index?" bts:@[@"取消",@"确定",@"反转",@"基准"] block:^(int index, NSString * _Nonnull name, NSString * _Nonnull text) {
             if (index==0) {
                 return ;
             }
@@ -373,6 +391,12 @@
                 for (int i=0; i<makers.count; i++) {
                     CC_SpriteMaker *maker=makers[i];
                     [maker addStep:step mirror:YES];
+                }
+            }
+            if ([name isEqualToString:@"基准"]) {
+                for (int i=0; i<makers.count; i++) {
+                    CC_SpriteMaker *maker=makers[i];
+                    [maker addFirtStep];
                 }
             }
         }];
