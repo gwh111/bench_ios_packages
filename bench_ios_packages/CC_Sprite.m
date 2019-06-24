@@ -247,7 +247,6 @@
             [self stop];
             if (finishBlock) {
                 finishBlock(state,self);
-                finishBlock=nil;
             }
         }else{
             if (finishBlock) {

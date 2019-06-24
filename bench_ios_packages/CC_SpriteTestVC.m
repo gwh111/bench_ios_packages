@@ -49,7 +49,7 @@
             fileName=[ccs getDefault:@"defaultSpriteTestName"];
         }
     }else{
-        fileName=@"sprite/man";
+        fileName=@"sprite/power_by";
     }
 
     sp1=[[CC_Sprite alloc]initOn:self.view withFilePath:fileName scaleSize:0.4 speedRate:1];
@@ -251,6 +251,15 @@
             [sp2_hited updateColors:@{@"hit":[UIColor redColor]}];
             [ccs delay:0.5 block:^{
                 [sp2_hited remove];
+            }];
+            
+            UIView *white=[[UIView alloc]initWithFrame:CGRectMake(0, 0, [ccui getW], [ccui getH])];
+            [self.view addSubview:white];
+            white.backgroundColor=COLOR_WHITE;
+            [UIView animateWithDuration:.5f animations:^{
+                white.alpha=0;
+            } completion:^(BOOL finished) {
+                [white removeFromSuperview];
             }];
         }
         if ([state isEqualToString:@"remove"]) {
